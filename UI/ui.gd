@@ -38,6 +38,6 @@ func slide_out_ui_left(ui:Control) -> void:
 
 func _on_sounds_toggled(toggled_on: bool) -> void:
 	if toggled_on:
-		%sounds.icon = load("res://icons/sound.svg")
+		%sounds.icon = load("res://UI/icons/sound.svg")
 	else:
-		%sounds.icon = load("res://icons/mute.svg")
+		%sounds.icon = load("res://UI/icons/mute.svg")
