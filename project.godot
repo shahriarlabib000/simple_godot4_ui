@@ -21,9 +21,9 @@ config/icon="res://icon.svg"
 window/size/viewport_width=1280
 window/size/viewport_height=720
 
-[editor_plugins]
+[internationalization]
 
-enabled=PackedStringArray("res://addons/basic_ui_plugin/plugin.cfg")
+locale/translations=PackedStringArray("res://UI/translation/translation.ru.translation", "res://UI/translation/translation.en.translation")
 
 [rendering]
 

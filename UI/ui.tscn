@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://buekxu7cfy6ki"]
+[gd_scene load_steps=10 format=3 uid="uid://buekxu7cfy6ki"]
 
 [ext_resource type="Script" uid="uid://jo42poblfvfr" path="res://UI/ui.gd" id="1_c7tqi"]
 [ext_resource type="Theme" uid="uid://cufj0uv2ocrn8" path="res://UI/themes/btn_left.tres" id="2_cbfhl"]
@@ -7,6 +7,7 @@
 [ext_resource type="Theme" uid="uid://duygm3k1y8si4" path="res://UI/themes/btn_center.tres" id="5_6rr40"]
 [ext_resource type="Texture2D" uid="uid://dhw0rrer18ty5" path="res://UI/icons/sound.svg" id="6_0w6e5"]
 [ext_resource type="Texture2D" uid="uid://bmmsdu488xkuc" path="res://UI/icons/back.svg" id="7_o2jkc"]
+[ext_resource type="Script" uid="uid://b53kqhjf056ps" path="res://UI/langBtn.gd" id="9_h81ot"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_27fn8"]
 bg_color = Color(1, 0.5294118, 0.7254902, 1)
@@ -101,7 +102,42 @@ text = "BACK"
 icon = ExtResource("7_o2jkc")
 expand_icon = true
 
+[node name="langOptions" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -45.0
+offset_right = 250.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 64
+
+[node name="en" type="Button" parent="langOptions"]
+custom_minimum_size = Vector2(500, 80)
+layout_mode = 2
+theme = ExtResource("5_6rr40")
+toggle_mode = true
+text = "ENGLISH"
+expand_icon = true
+script = ExtResource("9_h81ot")
+
+[node name="ru" type="Button" parent="langOptions"]
+custom_minimum_size = Vector2(500, 80)
+layout_mode = 2
+theme = ExtResource("5_6rr40")
+toggle_mode = true
+text = "русский"
+expand_icon = true
+script = ExtResource("9_h81ot")
+
 [connection signal="pressed" from="btns/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="btns/settings" to="." method="_on_settings_pressed"]
 [connection signal="toggled" from="settingsMenu/sounds" to="." method="_on_sounds_toggled"]
+[connection signal="pressed" from="settingsMenu/lang" to="." method="_on_languageMenuBtn_pressed"]
 [connection signal="pressed" from="settingsMenu/back" to="." method="_on_back_pressed"]

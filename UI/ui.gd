@@ -2,8 +2,24 @@ extends Control
 
 @onready var btns := $btns
 @onready var settingsMenu := $settingsMenu
+@onready var languageOptions := $langOptions
 @export var move_dist:= 5000
 @export var timespan := 0.3
+func _ready() -> void:
+	for child:Button in languageOptions.get_children():
+		child.pressed.connect(language_selected)
+
+func hide_all_ui() -> void:
+	for child in get_children():
+		child.hide()
+
+func _on_languageMenuBtn_pressed() -> void:
+	slide_out_ui_left(settingsMenu)
+	slide_in_ui_left(languageOptions)
+	
+func language_selected() -> void:
+	slide_out_ui_left(languageOptions)
+	slide_in_ui_left(btns)
 
 func _on_play_pressed() -> void:
 	slide_in_ui_left(btns)
@@ -12,7 +28,6 @@ func _on_settings_pressed() -> void:
 	settingsMenu.show()
 	slide_out_ui_left(btns)
 	slide_in_ui_left(settingsMenu)
-
 
 func _on_back_pressed() -> void:
 	slide_out_ui_left(settingsMenu)
