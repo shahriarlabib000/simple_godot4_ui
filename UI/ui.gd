@@ -6,7 +6,7 @@ extends Control
 @export var move_dist:= 5000
 @export var timespan := 0.3
 var sound_allowed :bool = true
-enum anim_direction {LEFT, RIGHT}
+enum anim_direction {LEFT, RIGHT, UP, DOWN}
 
 #builtin funcs
 func _ready() -> void:
@@ -63,50 +63,60 @@ func hide_all_ui() -> void:
 #animation funcs
 func slide_in(ui:Control, dir:anim_direction) ->void:
 	show_and_grab_child_focus(ui)
-	var tween:Tween = create_tween()
+	var tween: Tween = create_tween()
 	var move_val := Vector2.ZERO
 	match dir:
 		anim_direction.LEFT:
-			move_val = Vector2(move_dist,0)
+			move_val = Vector2(move_dist, 0)
 		anim_direction.RIGHT:
-			move_val = Vector2(-move_dist,0)
+			move_val = Vector2(-move_dist, 0)
+		anim_direction.UP:
+			move_val = Vector2(0, move_dist)
+		anim_direction.DOWN:
+			move_val = Vector2(0, -move_dist)
+	
 	ui.position -= move_val
-	tween.tween_property(ui,"position",ui.position + move_val,timespan)
+	tween.tween_property(ui, "position", ui.position + move_val, timespan)
 	await tween.finished
 
 func slide_out(ui:Control, dir:anim_direction) -> void:
-	var pos:= ui.position
-	var tween:Tween = create_tween()
+	var pos := ui.position
+	var tween: Tween = create_tween()
 	var move_val:Vector2 = Vector2.ZERO
 	match dir:
 		anim_direction.LEFT:
-			move_val = Vector2(-move_dist,0)
+			move_val = Vector2(-move_dist, 0)
 		anim_direction.RIGHT:
-			move_val = Vector2(move_dist,0)
-	tween.tween_property(ui,"position",ui.position + move_val,timespan)
+			move_val = Vector2(move_dist, 0)
+		anim_direction.UP:
+			move_val = Vector2(0, -move_dist)
+		anim_direction.DOWN:
+			move_val = Vector2(0, move_dist)
+			
+	tween.tween_property(ui, "position", ui.position + move_val, timespan)
 	await tween.finished
 	ui.hide()
 	ui.position = pos
 
 #signals
 func _on_languageMenuBtn_pressed() -> void:
-	slide_out(settingsMenu,anim_direction.LEFT)
-	slide_in(languageOptions,anim_direction.RIGHT)
+	slide_out(settingsMenu, anim_direction.LEFT)
+	slide_in(languageOptions, anim_direction.UP)
 
 func language_selected() -> void:
-	slide_out(languageOptions,anim_direction.RIGHT)
-	slide_in(settingsMenu,anim_direction.LEFT)
+	slide_out(languageOptions, anim_direction.DOWN)
+	slide_in(settingsMenu, anim_direction.LEFT)
 
 func _on_play_pressed() -> void:
-	slide_in(btns,anim_direction.LEFT)
+	slide_in(btns, anim_direction.LEFT)
 
 func _on_settings_pressed() -> void:
-	slide_out(btns,anim_direction.LEFT)
-	slide_in(settingsMenu,anim_direction.RIGHT)
+	slide_out(btns, anim_direction.LEFT)
+	slide_in(settingsMenu, anim_direction.RIGHT)
 
 func _on_back_pressed() -> void:
-	slide_out(settingsMenu,anim_direction.RIGHT)
-	slide_in(btns,anim_direction.LEFT)
+	slide_out(settingsMenu, anim_direction.RIGHT)
+	slide_in(btns, anim_direction.LEFT)
 
 func _on_sounds_toggled(toggled_on: bool) -> void:
 	sound_allowed = toggled_on
