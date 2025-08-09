@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://buekxu7cfy6ki"]
+[gd_scene load_steps=14 format=3 uid="uid://buekxu7cfy6ki"]
 
 [ext_resource type="Script" uid="uid://jo42poblfvfr" path="res://UI/ui.gd" id="1_c7tqi"]
 [ext_resource type="Theme" uid="uid://cufj0uv2ocrn8" path="res://UI/themes/btn_left.tres" id="2_cbfhl"]
@@ -11,12 +11,29 @@
 [ext_resource type="AudioStream" uid="uid://1xoucgy862ie" path="res://UI/sfx/ui-button-click-8-341030.mp3" id="9_4fiuh"]
 [ext_resource type="Script" uid="uid://b53kqhjf056ps" path="res://UI/langBtn.gd" id="9_h81ot"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h81ot"]
-bg_color = Color(0.10677286, 0.71943367, 0.43595102, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6rr40"]
+bg_color = Color(0.82626736, 0.15721741, 0.29111585, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 30
 corner_radius_top_right = 30
 corner_radius_bottom_right = 30
-corner_radius_bottom_left = 20
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h81ot"]
+bg_color = Color(0.10677286, 0.71943367, 0.43595102, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_27fn8"]
 bg_color = Color(1, 0.5294118, 0.7254902, 1)
@@ -87,15 +104,19 @@ grow_vertical = 2
 theme_override_constants/separation = 30
 alignment = 1
 
-[node name="sounds" type="Button" parent="settingsMenu" groups=["ui_btn"]]
+[node name="sound" type="Button" parent="settingsMenu" groups=["ui_btn"]]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
 theme = ExtResource("5_6rr40")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_6rr40")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_h81ot")
 toggle_mode = true
 action_mode = 0
-text = "SOUNDS"
+text = "SOUND"
 icon = ExtResource("6_0w6e5")
 expand_icon = true
 
@@ -157,6 +178,6 @@ stream = ExtResource("9_4fiuh")
 
 [connection signal="pressed" from="btns/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="btns/settings" to="." method="_on_settings_pressed"]
-[connection signal="toggled" from="settingsMenu/sounds" to="." method="_on_sounds_toggled"]
+[connection signal="toggled" from="settingsMenu/sound" to="." method="_on_sounds_toggled"]
 [connection signal="pressed" from="settingsMenu/lang" to="." method="_on_languageMenuBtn_pressed"]
 [connection signal="pressed" from="settingsMenu/back" to="." method="_on_back_pressed"]

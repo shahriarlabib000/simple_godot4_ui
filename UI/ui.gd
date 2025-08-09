@@ -8,7 +8,7 @@ extends Control
 var sound_allowed :bool = true
 
 func _ready() -> void:
-	%sounds.button_pressed = sound_allowed
+	%sound.button_pressed = sound_allowed
 	hide_all_ui()
 	$btns.show()
 	
@@ -29,7 +29,7 @@ func _on_languageMenuBtn_pressed() -> void:
 	
 func language_selected() -> void:
 	slide_out_ui_left(languageOptions)
-	slide_in_ui_left(btns)
+	slide_in_ui_left(settingsMenu)
 
 func _on_play_pressed() -> void:
 	slide_in_ui_left(btns)
@@ -64,9 +64,9 @@ func slide_out_ui_left(ui:Control) -> void:
 func _on_sounds_toggled(toggled_on: bool) -> void:
 	sound_allowed = toggled_on
 	if toggled_on:
-		%sounds.icon = load("res://UI/icons/sound.svg")
+		%sound.icon = load("res://UI/icons/sound.svg")
 	else:
-		%sounds.icon = load("res://UI/icons/mute.svg")
+		%sound.icon = load("res://UI/icons/mute.svg")
 
 func _play_ui_btn_sound() -> void:
 	if sound_allowed:

@@ -29,9 +29,7 @@ corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 
 [resource]
-Button/colors/font_color = Color(0.047058813, 0.5647059, 0.8745098, 1)
-Button/colors/font_focus_color = Color(0.047058813, 0.5647059, 0.8745098, 1)
-Button/colors/font_pressed_color = Color(0.60124695, 0.094453506, 0.2740998, 1)
+Button/constants/outline_size = 8
 Button/font_sizes/font_size = 64
 Button/styles/focus = SubResource("StyleBoxEmpty_gbbud")
 Button/styles/hover = SubResource("StyleBoxFlat_tmdbn")
