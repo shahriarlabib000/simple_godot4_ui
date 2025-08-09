@@ -23,7 +23,7 @@ window/size/viewport_height=720
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://UI/translation/translation.ru.translation", "res://UI/translation/translation.en.translation")
+locale/translations=PackedStringArray("res://UI/translation/translation.ru.translation", "res://UI/translation/translation.en.translation", "res://UI/translation/translation.bn.translation")
 
 [rendering]
 

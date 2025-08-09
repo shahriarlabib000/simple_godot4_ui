@@ -5,7 +5,7 @@ extends Control
 @onready var languageOptions := $langOptions
 @export var move_dist:= 5000
 @export var timespan := 0.3
-var sound_allowed :bool = true
+var sound_allowed := true
 enum anim_direction {LEFT, RIGHT, UP, DOWN}
 
 #builtin funcs
@@ -61,7 +61,7 @@ func hide_all_ui() -> void:
 			child.hide()
 
 #animation funcs
-func slide_in(ui:Control, dir:anim_direction) ->void:
+func slide_in(ui:Control, dir:anim_direction) -> void:
 	show_and_grab_child_focus(ui)
 	var tween: Tween = create_tween()
 	var move_val := Vector2.ZERO

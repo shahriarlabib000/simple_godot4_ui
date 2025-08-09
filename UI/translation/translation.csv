@@ -1,17 +1,17 @@
-,en,ru
-PLAY,PLAY,ИГРАТЬ
-GAME_OVER,GAME OVER,ИГРА ЗАКОНЧЕНА
-SOUND,SOUND,ЗВУК
-REPLAY,REPLAY,ПЕРЕИГРАТЬ
-COMBO,COMBO,КОМБО
-SCORE,SCORE,СЧЕТ
-HIGHSCORE,HIGHSCORE,РЕКОРД
-NEW HIGHSCORE !,NEW HIGHSCORE !,НОВЫЙ РЕКОРД!
-SETTINGS,SETTINGS,НАСТРОЙКИ
-BACK,BACK,НАЗАД
-LANGUAGE,LANGUAGE,ЯЗЫК
-QUIT,QUIT,ПОКИДАТЬ
-RESUME,RESUME,РЕЗЮМЕ
-LOADING_ADS,LOADING ADS,ЗАГРУЗКА РЕКЛАМЫ
-START,START,СТАРТ
+,en,ru,bn
+PLAY,PLAY,ИГРАТЬ,খেলুন
+GAME_OVER,GAME OVER,ИГРА ЗАКОНЧЕНА,খেলা শেষ
+SOUND,SOUND,ЗВУК,শব্দ
+REPLAY,REPLAY,ПЕРЕИГРАТЬ,আবার খেলুন
+COMBO,COMBO,КОМБО,কম্বো 
+SCORE,SCORE,СЧЕТ,স্কোর
+HIGHSCORE,HIGHSCORE,РЕКОРД,সর্বোচ্চ স্কোর
+NEW HIGHSCORE !,NEW HIGHSCORE !,НОВЫЙ РЕКОРД!,নতুন সর্বোচ্চ স্কোর
+SETTINGS,SETTINGS,НАСТРОЙКИ,সেটিংস
+BACK,BACK,НАЗАД,ফেরত যান
+LANGUAGE,LANGUAGE,ЯЗЫК,ভাষা
+QUIT,QUIT,ПОКИДАТЬ,বের হন
+RESUME,RESUME,РЕЗЮМЕ,খেলা চালিয়ে যান
+LOADING_ADS,LOADING ADS,ЗАГРУЗКА РЕКЛАМЫ,বিজ্ঞাপন লোড হচ্ছে
+START,START,СТАРТ,শুরু
 
