@@ -6,10 +6,10 @@ uid="uid://qslt0gbfi7ko"
 
 [deps]
 
-files=["res://UI/translation/translation.en.translation", "res://UI/translation/translation.ru.translation", "res://UI/translation/translation.bn.translation"]
+files=["res://UI/translation/translation.en.translation", "res://UI/translation/translation.ru.translation", "res://UI/translation/translation.bn.translation", "res://UI/translation/translation.fr.translation", "res://UI/translation/translation.it.translation", "res://UI/translation/translation.de.translation", "res://UI/translation/translation.es.translation", "res://UI/translation/translation.pt.translation", "res://UI/translation/translation.zh.translation", "res://UI/translation/translation.ja.translation", "res://UI/translation/translation.ko.translation"]
 
 source_file="res://UI/translation/translation.csv"
-dest_files=["res://UI/translation/translation.en.translation", "res://UI/translation/translation.ru.translation", "res://UI/translation/translation.bn.translation"]
+dest_files=["res://UI/translation/translation.en.translation", "res://UI/translation/translation.ru.translation", "res://UI/translation/translation.bn.translation", "res://UI/translation/translation.fr.translation", "res://UI/translation/translation.it.translation", "res://UI/translation/translation.de.translation", "res://UI/translation/translation.es.translation", "res://UI/translation/translation.pt.translation", "res://UI/translation/translation.zh.translation", "res://UI/translation/translation.ja.translation", "res://UI/translation/translation.ko.translation"]
 
 [params]
 

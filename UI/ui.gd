@@ -14,7 +14,7 @@ func _ready() -> void:
 	hide_all_ui()
 	show_and_grab_child_focus(btns)
 	
-	for child:Button in languageOptions.get_children():
+	for child:Button in get_tree().get_nodes_in_group("lang_btn"):
 		child.pressed.connect(language_selected)
 	
 	for node:Button in get_tree().get_nodes_in_group("ui_btn"):

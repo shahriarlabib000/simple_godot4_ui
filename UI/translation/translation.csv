@@ -1,17 +1,16 @@
-,en,ru,bn
-PLAY,PLAY,ИГРАТЬ,খেলুন
-GAME_OVER,GAME OVER,ИГРА ЗАКОНЧЕНА,খেলা শেষ
-SOUND,SOUND,ЗВУК,শব্দ
-REPLAY,REPLAY,ПЕРЕИГРАТЬ,আবার খেলুন
-COMBO,COMBO,КОМБО,কম্বো 
-SCORE,SCORE,СЧЕТ,স্কোর
-HIGHSCORE,HIGHSCORE,РЕКОРД,সর্বোচ্চ স্কোর
-NEW HIGHSCORE !,NEW HIGHSCORE !,НОВЫЙ РЕКОРД!,নতুন সর্বোচ্চ স্কোর
-SETTINGS,SETTINGS,НАСТРОЙКИ,সেটিংস
-BACK,BACK,НАЗАД,ফেরত যান
-LANGUAGE,LANGUAGE,ЯЗЫК,ভাষা
-QUIT,QUIT,ПОКИДАТЬ,বের হন
-RESUME,RESUME,РЕЗЮМЕ,খেলা চালিয়ে যান
-LOADING_ADS,LOADING ADS,ЗАГРУЗКА РЕКЛАМЫ,বিজ্ঞাপন লোড হচ্ছে
-START,START,СТАРТ,শুরু
-
+,en,ru,bn,fr,it,de,es,pt-br,zh-cn,ja,ko
+PLAY,PLAY,ИГРАТЬ,খেলুন,JOUER,GIOCARE,SPIELEN,JUGAR,JOGAR,玩,プレイ,플레이
+GAME_OVER,GAME OVER,ИГРА ЗАКОНЧЕНА,খেলা শেষ,FIN DU JEU,FINE DEL GIOCO,SPIEL VORBEI,JUEGO TERMINADO,FIM DE JOGO,游戏结束,ゲームオーバー,게임 오버
+SOUND,SOUND,ЗВУК,শব্দ,SON,SUONO,TON,SONIDO,SOM,声音,サウンド,사운드
+REPLAY,REPLAY,ПЕРЕИГРАТЬ,আবার খেলুন,REJOUER,RIGIOCARE,NOCHMAL SPIELEN,REJUGAR,REJOGAR,重播,リプレイ,다시 플레이
+COMBO,COMBO,КОМБО,কম্বো,COMBO,COMBO,KOMBO,COMBO,COMBO,连击,コンボ,콤보
+SCORE,SCORE,СЧЕТ,স্কোর,SCORE,PUNTEGGIO,PUNKTZAHL,PUNTUACIÓN,PLACAR,分数,スコア,점수
+HIGHSCORE,HIGHSCORE,РЕКОРД,সর্বোচ্চ স্কোর,MEILLEUR SCORE,RECORD,HOCHSTPUNKTZAHL,RÉCORD,RECORDE,最高分,ハイスコア,최고 기록
+NEW HIGHSCORE!,NEW HIGHSCORE!,НОВЫЙ РЕКОРД!,নতুন সর্বোচ্চ স্কোর,NOUVEAU MEILLEUR SCORE!,NUOVO RECORD!,NEUER HOCHSTPUNKT!,¡NUEVO RÉCORD!,NOVO RECORDE!,新纪录！,新ハイスコア！,새로운 최고 기록!
+SETTINGS,SETTINGS,НАСТРОЙКИ,সেটিংস,PARAMÈTRES,IMPOSTAZIONI,EINSTELLUNGEN,CONFIGURACIÓN,CONFIGURAÇÕES,设置,設定,설정
+BACK,BACK,НАЗАД,ফেরত যান,RETOUR,INDIETRO,ZURÜCK,VOLVER,VOLTAR,返回,戻る,뒤로
+LANGUAGE,LANGUAGE,ЯЗЫК,ভাষা,LANGUE,LINGUA,SPRACHE,IDIOMA,IDIOMA,语言,言語,언어
+QUIT,QUIT,ПОКИДАТЬ,বের হন,QUITTER,USCIRE,BEENDEN,SALIR,SAIR,退出,終了,종료
+RESUME,RESUME,РЕЗЮМЕ,খেলা চালিয়ে যান,REPRENDRE,RIPRENDI,FORTSETZEN,REANUDAR,RETOMAR,继续,再開,이어하기
+LOADING_ADS,LOADING ADS,ЗАГРУЗКА РЕКЛАМЫ,বিজ্ঞাপন লোড হচ্ছে,CHARGEMENT DES PUBS,CARICAMENTO ANNUNCI,WERBUNG WIRD GELADEN,CARGANDO ANUNCIOS,CARREGANDO PROPAGANDAS,正在加载广告,広告を読み込み中,광고 로딩 중
+START,START,СТАРТ,শুরু,DÉMARRER,AVVIA,START,INICIAR,INICIAR,开始,スタート,시작
