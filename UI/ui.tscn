@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://buekxu7cfy6ki"]
+[gd_scene load_steps=12 format=3 uid="uid://buekxu7cfy6ki"]
 
 [ext_resource type="Script" uid="uid://jo42poblfvfr" path="res://UI/ui.gd" id="1_c7tqi"]
 [ext_resource type="Theme" uid="uid://cufj0uv2ocrn8" path="res://UI/themes/btn_left.tres" id="2_cbfhl"]
@@ -6,7 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://i7cq8ec566xa" path="res://UI/icons/settings.svg" id="4_h81ot"]
 [ext_resource type="Theme" uid="uid://duygm3k1y8si4" path="res://UI/themes/btn_center.tres" id="5_6rr40"]
 [ext_resource type="Texture2D" uid="uid://dhw0rrer18ty5" path="res://UI/icons/sound.svg" id="6_0w6e5"]
+[ext_resource type="Texture2D" uid="uid://dx3svvqalfym3" path="res://UI/icons/language.svg" id="7_h81ot"]
 [ext_resource type="Texture2D" uid="uid://bmmsdu488xkuc" path="res://UI/icons/back.svg" id="7_o2jkc"]
+[ext_resource type="AudioStream" uid="uid://1xoucgy862ie" path="res://UI/sfx/ui-button-click-8-341030.mp3" id="9_4fiuh"]
 [ext_resource type="Script" uid="uid://b53kqhjf056ps" path="res://UI/langBtn.gd" id="9_h81ot"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_27fn8"]
@@ -43,7 +45,7 @@ grow_vertical = 2
 theme_override_constants/separation = 64
 alignment = 1
 
-[node name="play" type="Button" parent="btns"]
+[node name="play" type="Button" parent="btns" groups=["ui_btn"]]
 custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
 theme = ExtResource("2_cbfhl")
@@ -51,7 +53,7 @@ text = "PLAY"
 icon = ExtResource("3_4fiuh")
 expand_icon = true
 
-[node name="settings" type="Button" parent="btns"]
+[node name="settings" type="Button" parent="btns" groups=["ui_btn"]]
 custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
 theme = ExtResource("2_cbfhl")
@@ -76,7 +78,7 @@ grow_vertical = 2
 theme_override_constants/separation = 30
 alignment = 1
 
-[node name="sounds" type="Button" parent="settingsMenu"]
+[node name="sounds" type="Button" parent="settingsMenu" groups=["ui_btn"]]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
@@ -86,14 +88,15 @@ text = "SOUNDS"
 icon = ExtResource("6_0w6e5")
 expand_icon = true
 
-[node name="lang" type="Button" parent="settingsMenu"]
+[node name="lang" type="Button" parent="settingsMenu" groups=["ui_btn"]]
 custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
 theme = ExtResource("5_6rr40")
 text = "LANGUAGE"
-icon_alignment = 1
+icon = ExtResource("7_h81ot")
+expand_icon = true
 
-[node name="back" type="Button" parent="settingsMenu"]
+[node name="back" type="Button" parent="settingsMenu" groups=["ui_btn"]]
 custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
 theme = ExtResource("5_6rr40")
@@ -118,7 +121,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 64
 
-[node name="en" type="Button" parent="langOptions"]
+[node name="en" type="Button" parent="langOptions" groups=["ui_btn"]]
 custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
 theme = ExtResource("5_6rr40")
@@ -127,7 +130,7 @@ text = "ENGLISH"
 expand_icon = true
 script = ExtResource("9_h81ot")
 
-[node name="ru" type="Button" parent="langOptions"]
+[node name="ru" type="Button" parent="langOptions" groups=["ui_btn"]]
 custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
 theme = ExtResource("5_6rr40")
@@ -135,6 +138,9 @@ toggle_mode = true
 text = "русский"
 expand_icon = true
 script = ExtResource("9_h81ot")
+
+[node name="btnSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_4fiuh")
 
 [connection signal="pressed" from="btns/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="btns/settings" to="." method="_on_settings_pressed"]

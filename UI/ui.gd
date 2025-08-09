@@ -5,9 +5,14 @@ extends Control
 @onready var languageOptions := $langOptions
 @export var move_dist:= 5000
 @export var timespan := 0.3
+var sound_allowed :bool = true
+
 func _ready() -> void:
 	for child:Button in languageOptions.get_children():
 		child.pressed.connect(language_selected)
+	
+	for node:Button in get_tree().get_nodes_in_group("ui_btn"):
+		node.pressed.connect(_play_ui_btn_sound)
 
 func hide_all_ui() -> void:
 	for child in get_children():
@@ -52,7 +57,12 @@ func slide_out_ui_left(ui:Control) -> void:
 
 
 func _on_sounds_toggled(toggled_on: bool) -> void:
+	sound_allowed = toggled_on
 	if toggled_on:
 		%sounds.icon = load("res://UI/icons/sound.svg")
 	else:
 		%sounds.icon = load("res://UI/icons/mute.svg")
+
+func _play_ui_btn_sound() -> void:
+	if sound_allowed:
+		$btnSound.play()
