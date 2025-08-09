@@ -1,6 +1,19 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://duygm3k1y8si4"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://duygm3k1y8si4"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8175r"]
+[sub_resource type="SystemFont" id="SystemFont_8175r"]
+font_names = PackedStringArray("Fantasy")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8175r"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.87559015, 0, 0.300205, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tmdbn"]
 bg_color = Color(0.9682891, 0.3635438, 0.4362196, 1)
@@ -37,7 +50,8 @@ corner_radius_bottom_left = 30
 [resource]
 Button/constants/outline_size = 8
 Button/font_sizes/font_size = 64
-Button/styles/focus = SubResource("StyleBoxEmpty_8175r")
+Button/fonts/font = SubResource("SystemFont_8175r")
+Button/styles/focus = SubResource("StyleBoxFlat_8175r")
 Button/styles/hover = SubResource("StyleBoxFlat_tmdbn")
 Button/styles/normal = SubResource("StyleBoxFlat_wfqan")
 Button/styles/pressed = SubResource("StyleBoxFlat_d4qtx")

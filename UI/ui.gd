@@ -10,13 +10,35 @@ var sound_allowed :bool = true
 func _ready() -> void:
 	%sound.button_pressed = sound_allowed
 	hide_all_ui()
-	$btns.show()
+	show_and_grab_child_focus(btns)
 	
 	for child:Button in languageOptions.get_children():
 		child.pressed.connect(language_selected)
 	
 	for node:Button in get_tree().get_nodes_in_group("ui_btn"):
-		node.pressed.connect(_play_ui_btn_sound)
+		node.pressed.connect(_ui_btn_pressed)
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if Input.is_anything_pressed():
+		var btn :Control = get_viewport().gui_get_focus_owner()
+		if btn:
+			var parent :Control = btn.get_parent()
+			var next_btn :Control = null
+			var idx :int = btn.get_index()
+			if event.is_action_pressed("ui_up"):
+				if parent.get_child_count()-1 >= idx-1:
+					next_btn = parent.get_child(idx-1)
+				else:
+					next_btn = parent.get_child(-1)
+			elif event.is_action_pressed("ui_down"):
+				if parent.get_child_count()-1 >= idx+1:
+					next_btn = parent.get_child(idx+1)
+				else:
+					next_btn = parent.get_child(0)
+			if next_btn:
+				next_btn.grab_click_focus()
+				next_btn.grab_focus()
 
 func hide_all_ui() -> void:
 	for child in get_children():
@@ -35,7 +57,6 @@ func _on_play_pressed() -> void:
 	slide_in_ui_left(btns)
 
 func _on_settings_pressed() -> void:
-	settingsMenu.show()
 	slide_out_ui_left(btns)
 	slide_in_ui_left(settingsMenu)
 
@@ -45,7 +66,7 @@ func _on_back_pressed() -> void:
 	
 
 func slide_in_ui_left(ui:Control) -> void:
-	ui.show()
+	show_and_grab_child_focus(ui)
 	var tween:Tween = create_tween()
 	ui.position.x -= move_dist
 	tween.tween_property(ui,"position",ui.position + Vector2(move_dist,0),timespan)
@@ -68,6 +89,16 @@ func _on_sounds_toggled(toggled_on: bool) -> void:
 	else:
 		%sound.icon = load("res://UI/icons/mute.svg")
 
-func _play_ui_btn_sound() -> void:
+func _ui_btn_pressed() -> void:
 	if sound_allowed:
 		$btnSound.play()
+
+func show_and_grab_child_focus(node:Control) -> void:
+	node.show()
+	if DisplayServer.has_hardware_keyboard():
+		if node.get_child_count() > 0:
+			var child := node.get_child(0)
+			if child is Control:
+				child.grab_click_focus()
+				child.grab_focus()
+	
