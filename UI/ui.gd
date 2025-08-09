@@ -32,7 +32,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				else:
 					next_btn = parent.get_child(-1)
 			elif event.is_action_pressed("ui_down"):
-				if parent.get_child_count()-1 >= idx+1:
+				if idx+1 <= parent.get_child_count()-1:
 					next_btn = parent.get_child(idx+1)
 				else:
 					next_btn = parent.get_child(0)
@@ -96,9 +96,12 @@ func _ui_btn_pressed() -> void:
 func show_and_grab_child_focus(node:Control) -> void:
 	node.show()
 	if DisplayServer.has_hardware_keyboard():
-		if node.get_child_count() > 0:
-			var child := node.get_child(0)
-			if child is Control:
-				child.grab_click_focus()
-				child.grab_focus()
+		if node.visible:
+			if node.get_child_count() > 0:
+				var child := node.get_child(0)
+				if child is Control:
+					child.grab_click_focus()
+					child.grab_focus()
+		else:
+			get_viewport().gui_release_focus()
 	
