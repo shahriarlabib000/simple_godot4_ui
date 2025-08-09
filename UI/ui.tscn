@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://buekxu7cfy6ki"]
+[gd_scene load_steps=13 format=3 uid="uid://buekxu7cfy6ki"]
 
 [ext_resource type="Script" uid="uid://jo42poblfvfr" path="res://UI/ui.gd" id="1_c7tqi"]
 [ext_resource type="Theme" uid="uid://cufj0uv2ocrn8" path="res://UI/themes/btn_left.tres" id="2_cbfhl"]
@@ -10,6 +10,13 @@
 [ext_resource type="Texture2D" uid="uid://bmmsdu488xkuc" path="res://UI/icons/back.svg" id="7_o2jkc"]
 [ext_resource type="AudioStream" uid="uid://1xoucgy862ie" path="res://UI/sfx/ui-button-click-8-341030.mp3" id="9_4fiuh"]
 [ext_resource type="Script" uid="uid://b53kqhjf056ps" path="res://UI/langBtn.gd" id="9_h81ot"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h81ot"]
+bg_color = Color(0.10677286, 0.71943367, 0.43595102, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_27fn8"]
 bg_color = Color(1, 0.5294118, 0.7254902, 1)
@@ -49,6 +56,7 @@ alignment = 1
 custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
 theme = ExtResource("2_cbfhl")
+action_mode = 0
 text = "PLAY"
 icon = ExtResource("3_4fiuh")
 expand_icon = true
@@ -57,6 +65,7 @@ expand_icon = true
 custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
 theme = ExtResource("2_cbfhl")
+action_mode = 0
 text = "SETTINGS"
 icon = ExtResource("4_h81ot")
 expand_icon = true
@@ -83,7 +92,9 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
 theme = ExtResource("5_6rr40")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h81ot")
 toggle_mode = true
+action_mode = 0
 text = "SOUNDS"
 icon = ExtResource("6_0w6e5")
 expand_icon = true
@@ -92,6 +103,7 @@ expand_icon = true
 custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
 theme = ExtResource("5_6rr40")
+action_mode = 0
 text = "LANGUAGE"
 icon = ExtResource("7_h81ot")
 expand_icon = true
@@ -101,6 +113,7 @@ custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
 theme = ExtResource("5_6rr40")
 theme_override_styles/normal = SubResource("StyleBoxFlat_27fn8")
+action_mode = 0
 text = "BACK"
 icon = ExtResource("7_o2jkc")
 expand_icon = true
@@ -125,7 +138,7 @@ theme_override_constants/separation = 64
 custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
 theme = ExtResource("5_6rr40")
-toggle_mode = true
+action_mode = 0
 text = "ENGLISH"
 expand_icon = true
 script = ExtResource("9_h81ot")
@@ -134,7 +147,7 @@ script = ExtResource("9_h81ot")
 custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
 theme = ExtResource("5_6rr40")
-toggle_mode = true
+action_mode = 0
 text = "русский"
 expand_icon = true
 script = ExtResource("9_h81ot")

@@ -8,6 +8,10 @@ extends Control
 var sound_allowed :bool = true
 
 func _ready() -> void:
+	%sounds.button_pressed = sound_allowed
+	hide_all_ui()
+	$btns.show()
+	
 	for child:Button in languageOptions.get_children():
 		child.pressed.connect(language_selected)
 	
@@ -16,7 +20,8 @@ func _ready() -> void:
 
 func hide_all_ui() -> void:
 	for child in get_children():
-		child.hide()
+		if child is Control:
+			child.hide()
 
 func _on_languageMenuBtn_pressed() -> void:
 	slide_out_ui_left(settingsMenu)
