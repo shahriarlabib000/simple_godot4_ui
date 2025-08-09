@@ -7,6 +7,7 @@ extends Control
 @export var timespan := 0.3
 var sound_allowed :bool = true
 
+#builtin funcs
 func _ready() -> void:
 	%sound.button_pressed = sound_allowed
 	hide_all_ui()
@@ -40,59 +41,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				next_btn.grab_click_focus()
 				next_btn.grab_focus()
 
-func hide_all_ui() -> void:
-	for child in get_children():
-		if child is Control:
-			child.hide()
-
-func _on_languageMenuBtn_pressed() -> void:
-	slide_out_ui_left(settingsMenu)
-	slide_in_ui_left(languageOptions)
-	
-func language_selected() -> void:
-	slide_out_ui_left(languageOptions)
-	slide_in_ui_left(settingsMenu)
-
-func _on_play_pressed() -> void:
-	slide_in_ui_left(btns)
-
-func _on_settings_pressed() -> void:
-	slide_out_ui_left(btns)
-	slide_in_ui_left(settingsMenu)
-
-func _on_back_pressed() -> void:
-	slide_out_ui_left(settingsMenu)
-	slide_in_ui_left(btns)
-	
-
-func slide_in_ui_left(ui:Control) -> void:
-	show_and_grab_child_focus(ui)
-	var tween:Tween = create_tween()
-	ui.position.x -= move_dist
-	tween.tween_property(ui,"position",ui.position + Vector2(move_dist,0),timespan)
-	await tween.finished
-	
-	
-func slide_out_ui_left(ui:Control) -> void:
-	var pos:= ui.position
-	var tween:Tween = create_tween()
-	tween.tween_property(ui,"position",ui.position - Vector2(move_dist,0),timespan)
-	await tween.finished
-	ui.hide()
-	ui.position = pos
-
-
-func _on_sounds_toggled(toggled_on: bool) -> void:
-	sound_allowed = toggled_on
-	if toggled_on:
-		%sound.icon = load("res://UI/icons/sound.svg")
-	else:
-		%sound.icon = load("res://UI/icons/mute.svg")
-
-func _ui_btn_pressed() -> void:
-	if sound_allowed:
-		$btnSound.play()
-
+#declared funcs
 func show_and_grab_child_focus(node:Control) -> void:
 	node.show()
 	if DisplayServer.has_hardware_keyboard():
@@ -104,4 +53,70 @@ func show_and_grab_child_focus(node:Control) -> void:
 					child.grab_focus()
 		else:
 			get_viewport().gui_release_focus()
+
+func hide_all_ui() -> void:
+	for child in get_children():
+		if child is Control:
+			child.hide()
+
+#animation funcs
+func slide_in_ui_left(ui:Control) -> void:
+	show_and_grab_child_focus(ui)
+	var tween:Tween = create_tween()
+	ui.position.x -= move_dist
+	tween.tween_property(ui,"position",ui.position + Vector2(move_dist,0),timespan)
+	await tween.finished
 	
+func slide_in_ui_right(ui:Control) -> void:
+	show_and_grab_child_focus(ui)
+	var tween:Tween = create_tween()
+	ui.position.x += move_dist
+	tween.tween_property(ui,"position",ui.position - Vector2(move_dist,0),timespan)
+	await tween.finished
+
+func slide_out_ui_left(ui:Control) -> void:
+	var pos:= ui.position
+	var tween:Tween = create_tween()
+	tween.tween_property(ui,"position",ui.position - Vector2(move_dist,0),timespan)
+	await tween.finished
+	ui.hide()
+	ui.position = pos
+
+func slide_out_ui_right(ui:Control) -> void:
+	var pos:= ui.position
+	var tween:Tween = create_tween()
+	tween.tween_property(ui,"position",ui.position + Vector2(move_dist,0),timespan)
+	await tween.finished
+	ui.hide()
+	ui.position = pos
+
+#signals
+func _on_languageMenuBtn_pressed() -> void:
+	slide_out_ui_right(settingsMenu)
+	slide_in_ui_left(languageOptions)
+
+func language_selected() -> void:
+	slide_out_ui_left(languageOptions)
+	slide_in_ui_right(settingsMenu)
+
+func _on_play_pressed() -> void:
+	slide_in_ui_left(btns)
+
+func _on_settings_pressed() -> void:
+	slide_out_ui_right(btns)
+	slide_in_ui_left(settingsMenu)
+
+func _on_back_pressed() -> void:
+	slide_out_ui_left(settingsMenu)
+	slide_in_ui_right(btns)
+
+func _on_sounds_toggled(toggled_on: bool) -> void:
+	sound_allowed = toggled_on
+	if toggled_on:
+		%sound.icon = load("res://UI/icons/sound.svg")
+	else:
+		%sound.icon = load("res://UI/icons/mute.svg")
+
+func _ui_btn_pressed() -> void:
+	if sound_allowed:
+		$btnSound.play()
