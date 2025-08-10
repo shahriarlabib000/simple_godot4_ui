@@ -158,27 +158,27 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="en" type="Button" parent="langOptions/langOptions" groups=["lang_btn", "ui_btn"]]
-custom_minimum_size = Vector2(500, 80)
-layout_mode = 2
-theme = ExtResource("5_6rr40")
-text = "ENGLISH"
-expand_icon = true
-script = ExtResource("9_h81ot")
-
-[node name="ru" type="Button" parent="langOptions/langOptions" groups=["lang_btn", "ui_btn"]]
-custom_minimum_size = Vector2(500, 80)
-layout_mode = 2
-theme = ExtResource("5_6rr40")
-text = "русский"
-expand_icon = true
-script = ExtResource("9_h81ot")
-
 [node name="bn" type="Button" parent="langOptions/langOptions" groups=["lang_btn", "ui_btn"]]
 custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
 theme = ExtResource("5_6rr40")
 text = "বাংলা"
+expand_icon = true
+script = ExtResource("9_h81ot")
+
+[node name="de" type="Button" parent="langOptions/langOptions" groups=["lang_btn", "ui_btn"]]
+custom_minimum_size = Vector2(500, 80)
+layout_mode = 2
+theme = ExtResource("5_6rr40")
+text = "DEUSTCH"
+expand_icon = true
+script = ExtResource("9_h81ot")
+
+[node name="en" type="Button" parent="langOptions/langOptions" groups=["lang_btn", "ui_btn"]]
+custom_minimum_size = Vector2(500, 80)
+layout_mode = 2
+theme = ExtResource("5_6rr40")
+text = "ENGLISH"
 expand_icon = true
 script = ExtResource("9_h81ot")
 
@@ -188,14 +188,6 @@ layout_mode = 2
 theme = ExtResource("5_6rr40")
 text = "ESPAÑOL
 "
-expand_icon = true
-script = ExtResource("9_h81ot")
-
-[node name="de" type="Button" parent="langOptions/langOptions" groups=["lang_btn", "ui_btn"]]
-custom_minimum_size = Vector2(500, 80)
-layout_mode = 2
-theme = ExtResource("5_6rr40")
-text = "DEUSTCH"
 expand_icon = true
 script = ExtResource("9_h81ot")
 
@@ -236,6 +228,14 @@ custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
 theme = ExtResource("5_6rr40")
 text = "PORTUGUÊS"
+expand_icon = true
+script = ExtResource("9_h81ot")
+
+[node name="ru" type="Button" parent="langOptions/langOptions" groups=["lang_btn", "ui_btn"]]
+custom_minimum_size = Vector2(500, 80)
+layout_mode = 2
+theme = ExtResource("5_6rr40")
+text = "русский"
 expand_icon = true
 script = ExtResource("9_h81ot")
 
