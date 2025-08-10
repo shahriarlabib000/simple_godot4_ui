@@ -20,10 +20,11 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/stretch/aspect="expand"
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://UI/translation/translation.ru.translation", "res://UI/translation/translation.en.translation", "res://UI/translation/translation.bn.translation")
+locale/translations=PackedStringArray("res://UI/translation/translation.ru.translation", "res://UI/translation/translation.en.translation", "res://UI/translation/translation.bn.translation", "res://UI/translation/translation.de.translation", "res://UI/translation/translation.es.translation", "res://UI/translation/translation.fr.translation", "res://UI/translation/translation.it.translation", "res://UI/translation/translation.ja.translation", "res://UI/translation/translation.ko.translation", "res://UI/translation/translation.pt.translation", "res://UI/translation/translation.zh.translation")
 
 [rendering]
 

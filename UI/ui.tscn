@@ -142,22 +142,23 @@ expand_icon = true
 [node name="btnSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_4fiuh")
 
-[node name="langOptions" type="VBoxContainer" parent="."]
+[node name="langOptions" type="ScrollContainer" parent="."]
+visible = false
+custom_minimum_size = Vector2(600, 720)
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 13
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -250.0
-offset_top = -191.0
-offset_right = 250.0
-offset_bottom = 191.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 64
 
-[node name="en" type="Button" parent="langOptions" groups=["lang_btn", "ui_btn"]]
+[node name="langOptions" type="VBoxContainer" parent="langOptions"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="en" type="Button" parent="langOptions/langOptions" groups=["lang_btn", "ui_btn"]]
 custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
 theme = ExtResource("5_6rr40")
@@ -165,7 +166,7 @@ text = "ENGLISH"
 expand_icon = true
 script = ExtResource("9_h81ot")
 
-[node name="ru" type="Button" parent="langOptions" groups=["lang_btn", "ui_btn"]]
+[node name="ru" type="Button" parent="langOptions/langOptions" groups=["lang_btn", "ui_btn"]]
 custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
 theme = ExtResource("5_6rr40")
@@ -173,11 +174,76 @@ text = "русский"
 expand_icon = true
 script = ExtResource("9_h81ot")
 
-[node name="bn" type="Button" parent="langOptions" groups=["lang_btn", "ui_btn"]]
+[node name="bn" type="Button" parent="langOptions/langOptions" groups=["lang_btn", "ui_btn"]]
 custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
 theme = ExtResource("5_6rr40")
 text = "বাংলা"
+expand_icon = true
+script = ExtResource("9_h81ot")
+
+[node name="es" type="Button" parent="langOptions/langOptions" groups=["lang_btn", "ui_btn"]]
+custom_minimum_size = Vector2(500, 80)
+layout_mode = 2
+theme = ExtResource("5_6rr40")
+text = "ESPAÑOL
+"
+expand_icon = true
+script = ExtResource("9_h81ot")
+
+[node name="de" type="Button" parent="langOptions/langOptions" groups=["lang_btn", "ui_btn"]]
+custom_minimum_size = Vector2(500, 80)
+layout_mode = 2
+theme = ExtResource("5_6rr40")
+text = "DEUSTCH"
+expand_icon = true
+script = ExtResource("9_h81ot")
+
+[node name="fr" type="Button" parent="langOptions/langOptions" groups=["lang_btn", "ui_btn"]]
+custom_minimum_size = Vector2(500, 80)
+layout_mode = 2
+theme = ExtResource("5_6rr40")
+text = "FRANÇAIS"
+expand_icon = true
+script = ExtResource("9_h81ot")
+
+[node name="it" type="Button" parent="langOptions/langOptions" groups=["lang_btn", "ui_btn"]]
+custom_minimum_size = Vector2(500, 80)
+layout_mode = 2
+theme = ExtResource("5_6rr40")
+text = "ITALIANO"
+expand_icon = true
+script = ExtResource("9_h81ot")
+
+[node name="ja" type="Button" parent="langOptions/langOptions" groups=["lang_btn", "ui_btn"]]
+custom_minimum_size = Vector2(500, 80)
+layout_mode = 2
+theme = ExtResource("5_6rr40")
+text = "日本語"
+expand_icon = true
+script = ExtResource("9_h81ot")
+
+[node name="ko" type="Button" parent="langOptions/langOptions" groups=["lang_btn", "ui_btn"]]
+custom_minimum_size = Vector2(500, 80)
+layout_mode = 2
+theme = ExtResource("5_6rr40")
+text = "한국어"
+expand_icon = true
+script = ExtResource("9_h81ot")
+
+[node name="pt" type="Button" parent="langOptions/langOptions" groups=["lang_btn", "ui_btn"]]
+custom_minimum_size = Vector2(500, 80)
+layout_mode = 2
+theme = ExtResource("5_6rr40")
+text = "PORTUGUÊS"
+expand_icon = true
+script = ExtResource("9_h81ot")
+
+[node name="zh" type="Button" parent="langOptions/langOptions" groups=["lang_btn", "ui_btn"]]
+custom_minimum_size = Vector2(500, 80)
+layout_mode = 2
+theme = ExtResource("5_6rr40")
+text = "中文"
 expand_icon = true
 script = ExtResource("9_h81ot")
 
