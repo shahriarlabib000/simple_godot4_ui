@@ -14,7 +14,8 @@ config/name="my_ui"
 config/tags=PackedStringArray("ui")
 run/main_scene="uid://buekxu7cfy6ki"
 config/features=PackedStringArray("4.5", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://cjpcxynkygc7e"
+boot_splash/image="uid://cjpcxynkygc7e"
 
 [display]
 
