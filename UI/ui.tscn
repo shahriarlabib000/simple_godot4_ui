@@ -55,9 +55,33 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_c7tqi")
 
-[node name="btns" type="VBoxContainer" parent="."]
+[node name="inGameUi" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="inGameSettings" type="TextureButton" parent="inGameUi"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -64.0
+offset_right = 64.0
+offset_bottom = 130.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme = ExtResource("5_6rr40")
+texture_normal = ExtResource("4_h81ot")
+
+[node name="mainMenu" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -69,7 +93,7 @@ grow_vertical = 2
 theme_override_constants/separation = 64
 alignment = 1
 
-[node name="play" type="Button" parent="btns" groups=["ui_btn"]]
+[node name="play" type="Button" parent="mainMenu" groups=["ui_btn"]]
 custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
 theme = ExtResource("2_cbfhl")
@@ -77,7 +101,7 @@ action_mode = 0
 text = "PLAY"
 icon = ExtResource("3_4fiuh")
 
-[node name="settings" type="Button" parent="btns" groups=["ui_btn"]]
+[node name="settings" type="Button" parent="mainMenu" groups=["ui_btn"]]
 custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
 theme = ExtResource("2_cbfhl")
@@ -101,6 +125,15 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 30
 alignment = 1
+
+[node name="resume" type="Button" parent="settingsMenu" groups=["ui_btn"]]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 80)
+layout_mode = 2
+theme = ExtResource("5_6rr40")
+action_mode = 0
+text = "RESUME"
+icon = ExtResource("3_4fiuh")
 
 [node name="sound" type="Button" parent="settingsMenu" groups=["ui_btn"]]
 unique_name_in_owner = true
@@ -126,12 +159,23 @@ text = "LANGUAGE"
 icon = ExtResource("7_h81ot")
 
 [node name="back" type="Button" parent="settingsMenu" groups=["ui_btn"]]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
 theme = ExtResource("5_6rr40")
 theme_override_styles/normal = SubResource("StyleBoxFlat_27fn8")
 action_mode = 0
 text = "BACK"
+icon = ExtResource("7_o2jkc")
+
+[node name="mainMenuReturn" type="Button" parent="settingsMenu" groups=["ui_btn"]]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 80)
+layout_mode = 2
+theme = ExtResource("5_6rr40")
+theme_override_styles/normal = SubResource("StyleBoxFlat_27fn8")
+action_mode = 0
+text = "MAIN_MENU"
 icon = ExtResource("7_o2jkc")
 
 [node name="btnSound" type="AudioStreamPlayer" parent="."]
@@ -242,8 +286,11 @@ text = "中文"
 expand_icon = true
 script = ExtResource("9_h81ot")
 
-[connection signal="pressed" from="btns/play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="btns/settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="inGameUi/inGameSettings" to="." method="_on_in_game_settings_pressed"]
+[connection signal="pressed" from="mainMenu/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="mainMenu/settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="settingsMenu/resume" to="." method="_on_resume_pressed"]
 [connection signal="toggled" from="settingsMenu/sound" to="." method="_on_sounds_toggled"]
 [connection signal="pressed" from="settingsMenu/lang" to="." method="_on_languageMenuBtn_pressed"]
 [connection signal="pressed" from="settingsMenu/back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="settingsMenu/mainMenuReturn" to="." method="_on_mainMenuReturn_pressed"]
