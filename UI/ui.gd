@@ -18,6 +18,7 @@ signal return_to_menu
 
 @export var move_dist:= 5000
 @export var timespan := 0.3
+@export var auto_signal := true
 
 var sound_allowed := true
 enum anim_direction {LEFT, RIGHT, UP, DOWN}
@@ -25,8 +26,8 @@ enum anim_direction {LEFT, RIGHT, UP, DOWN}
 #builtin funcs
 func _ready() -> void:
 	%sound.button_pressed = sound_allowed
-	hide_all_ui()
-	show_and_grab_child_focus(mainMenu)
+	_hide_all_ui()
+	_show_and_grab_child_focus(mainMenu)
 	
 	for child:Button in get_tree().get_nodes_in_group("lang_btn"):
 		child.lang_pressed.connect(_language_selected)
@@ -57,7 +58,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				next_btn.grab_focus()
 
 #declared funcs
-func show_and_grab_child_focus(node:Control) -> void:
+func _show_and_grab_child_focus(node:Control) -> void:
 	node.show()
 	if DisplayServer.has_hardware_keyboard():
 		if node.visible:
@@ -69,14 +70,14 @@ func show_and_grab_child_focus(node:Control) -> void:
 		else:
 			get_viewport().gui_release_focus()
 
-func hide_all_ui() -> void:
+func _hide_all_ui() -> void:
 	for child in get_children():
 		if child is Control:
 			child.hide()
 
 #animation funcs
-func slide_in(ui:Control, dir:anim_direction) -> void:
-	show_and_grab_child_focus(ui)
+func _slide_in(ui:Control, dir:anim_direction) -> void:
+	_show_and_grab_child_focus(ui)
 	var tween: Tween = create_tween()
 	var move_val := Vector2.ZERO
 	match dir:
@@ -93,7 +94,7 @@ func slide_in(ui:Control, dir:anim_direction) -> void:
 	tween.tween_property(ui, "position", ui.position + move_val, timespan)
 	await tween.finished
 
-func slide_out(ui:Control, dir:anim_direction) -> void:
+func _slide_out(ui:Control, dir:anim_direction) -> void:
 	var pos := ui.position
 	var tween: Tween = create_tween()
 	var move_val:Vector2 = Vector2.ZERO
@@ -112,56 +113,52 @@ func slide_out(ui:Control, dir:anim_direction) -> void:
 	ui.hide()
 	ui.position = pos
 
-func bring_settings() -> void:
-	slide_out(mainMenu, anim_direction.LEFT)
-	slide_in(settingsMenu, anim_direction.RIGHT)
-
+func _bring_settings() -> void:
+	_slide_out(mainMenu, anim_direction.LEFT)
+	_slide_in(settingsMenu, anim_direction.RIGHT)
 #signals
 func _on_languageMenuBtn_pressed() -> void:
-	slide_out(settingsMenu, anim_direction.LEFT)
-	slide_in(languageOptions, anim_direction.UP)
+	_slide_out(settingsMenu, anim_direction.LEFT)
+	_slide_in(languageOptions, anim_direction.UP)
 
 func _language_selected(lang: String) -> void:
 	TranslationServer.set_locale(lang)
 	language_selected.emit(lang)
-	slide_out(languageOptions, anim_direction.DOWN)
-	slide_in(settingsMenu, anim_direction.LEFT)
+	_slide_out(languageOptions, anim_direction.DOWN)
+	_slide_in(settingsMenu, anim_direction.LEFT)
 
 func _on_play_pressed() -> void:
 	play_pressed.emit()
-	slide_out(mainMenu,anim_direction.LEFT)
-	inGameUi.show()
+	_slide_out(mainMenu,anim_direction.LEFT)
+	if auto_signal:
+		show_in_game_ui()
 
 func _on_settings_pressed() -> void:
 	backBtn.show()
 	resumeBtn.hide()
 	mainMenuReturn.hide()
-	bring_settings()
+	_bring_settings()
 
 func _on_mainMenuReturn_pressed() -> void:
+	if auto_signal:
+		show_main_menu()
 	return_to_menu.emit()
-	gameplay_stopped.emit()
-	inGameUi.hide()
-	mainMenuReturn.hide()
-	resumeBtn.hide()
-	backBtn.show()
-	slide_out(settingsMenu,anim_direction.LEFT)
-	slide_in(mainMenu,anim_direction.RIGHT)
+	_slide_out(settingsMenu,anim_direction.LEFT)
 
 func _on_in_game_settings_pressed() -> void:
 	gameplay_stopped.emit()
 	backBtn.hide()
 	resumeBtn.show()
 	mainMenuReturn.show()
-	bring_settings()
+	_bring_settings()
 
 func _on_resume_pressed() -> void:
 	gameplay_resumed.emit()
-	slide_out(settingsMenu,anim_direction.RIGHT)
+	_slide_out(settingsMenu,anim_direction.RIGHT)
 
 func _on_back_pressed() -> void:
-	slide_out(settingsMenu, anim_direction.RIGHT)
-	slide_in(mainMenu, anim_direction.LEFT)
+	_slide_out(settingsMenu, anim_direction.RIGHT)
+	_slide_in(mainMenu, anim_direction.LEFT)
 
 func _on_sounds_toggled(toggled_on: bool) -> void:
 	sound_toggled.emit(toggled_on)
@@ -174,3 +171,14 @@ func _on_sounds_toggled(toggled_on: bool) -> void:
 func _ui_btn_pressed() -> void:
 	if sound_allowed:
 		$btnSound.play()
+
+#global funcs
+func show_in_game_ui() -> void:
+	inGameUi.show()
+
+func show_main_menu() -> void:
+	inGameUi.hide()
+	mainMenuReturn.hide()
+	resumeBtn.hide()
+	backBtn.show()
+	_slide_in(mainMenu, anim_direction.LEFT)
