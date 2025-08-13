@@ -1,0 +1,8 @@
+[gd_resource type="FontVariation" load_steps=4 format=3 uid="uid://m6slwyd5ovpn"]
+
+[ext_resource type="FontFile" uid="uid://cybwrt06e3nsu" path="res://UI/fonts/NotoSansBengali-Regular.ttf" id="1_mbhar"]
+[ext_resource type="FontFile" uid="uid://ccfrke35fy12e" path="res://UI/fonts/NotoSansSC-Regular.ttf" id="2_gyt8k"]
+[ext_resource type="FontFile" uid="uid://bwposrwcekgpu" path="res://UI/fonts/NotoSansKR-Regular.ttf" id="3_hl4lb"]
+
+[resource]
+fallbacks = Array[Font]([ExtResource("1_mbhar"), ExtResource("2_gyt8k"), ExtResource("3_hl4lb")])

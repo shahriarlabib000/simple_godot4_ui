@@ -1,7 +1,6 @@
 [gd_resource type="Theme" load_steps=6 format=3 uid="uid://duygm3k1y8si4"]
 
-[sub_resource type="SystemFont" id="SystemFont_8175r"]
-font_names = PackedStringArray("Fantasy")
+[ext_resource type="FontVariation" uid="uid://m6slwyd5ovpn" path="res://UI/fonts/font.tres" id="1_csy1c"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8175r"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -50,7 +49,7 @@ corner_radius_bottom_left = 30
 [resource]
 Button/constants/outline_size = 8
 Button/font_sizes/font_size = 64
-Button/fonts/font = SubResource("SystemFont_8175r")
+Button/fonts/font = ExtResource("1_csy1c")
 Button/styles/focus = SubResource("StyleBoxFlat_8175r")
 Button/styles/hover = SubResource("StyleBoxFlat_tmdbn")
 Button/styles/normal = SubResource("StyleBoxFlat_wfqan")
