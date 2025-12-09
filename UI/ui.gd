@@ -1,3 +1,4 @@
+class_name simple_ui
 extends Control
 
 # signal defs
