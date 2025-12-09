@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://buekxu7cfy6ki"]
+[gd_scene format=3 uid="uid://buekxu7cfy6ki"]
 
 [ext_resource type="Script" uid="uid://jo42poblfvfr" path="res://UI/ui.gd" id="1_c7tqi"]
 [ext_resource type="Theme" uid="uid://cufj0uv2ocrn8" path="res://UI/themes/btn_left.tres" id="2_cbfhl"]
@@ -48,7 +48,7 @@ corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 
-[node name="ui" type="Control"]
+[node name="ui" type="Control" unique_id=906330833]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -58,7 +58,40 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_c7tqi")
 
-[node name="inGameUi" type="Control" parent="."]
+[node name="mainMenu" type="Control" parent="." unique_id=936933401]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="mainMenuVbox" type="VBoxContainer" parent="mainMenu" unique_id=1019964134]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 500.0
+grow_vertical = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="play" type="Button" parent="mainMenu/mainMenuVbox" unique_id=90968201 groups=["ui_btn"]]
+custom_minimum_size = Vector2(500, 80)
+layout_mode = 2
+theme = ExtResource("2_cbfhl")
+action_mode = 0
+text = "PLAY"
+icon = ExtResource("3_4fiuh")
+
+[node name="settings" type="Button" parent="mainMenu/mainMenuVbox" unique_id=1607454203 groups=["ui_btn"]]
+custom_minimum_size = Vector2(500, 80)
+layout_mode = 2
+theme = ExtResource("2_cbfhl")
+action_mode = 0
+text = "SETTINGS"
+icon = ExtResource("4_h81ot")
+
+[node name="inGameUi" type="Control" parent="." unique_id=1215019119]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -68,7 +101,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="inGameSettings" type="TextureButton" parent="inGameUi"]
+[node name="inGameSettings" type="TextureButton" parent="inGameUi" unique_id=1378395591]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -81,52 +114,29 @@ size_flags_horizontal = 4
 theme = ExtResource("5_6rr40")
 texture_normal = ExtResource("4_h81ot")
 
-[node name="mainMenu" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -122.0
-offset_right = 500.0
-offset_bottom = 122.0
-grow_vertical = 2
-theme_override_constants/separation = 64
-alignment = 1
-
-[node name="play" type="Button" parent="mainMenu" groups=["ui_btn"]]
-custom_minimum_size = Vector2(500, 80)
-layout_mode = 2
-theme = ExtResource("2_cbfhl")
-action_mode = 0
-text = "PLAY"
-icon = ExtResource("3_4fiuh")
-
-[node name="settings" type="Button" parent="mainMenu" groups=["ui_btn"]]
-custom_minimum_size = Vector2(500, 80)
-layout_mode = 2
-theme = ExtResource("2_cbfhl")
-action_mode = 0
-text = "SETTINGS"
-icon = ExtResource("4_h81ot")
-
-[node name="settingsMenu" type="VBoxContainer" parent="."]
+[node name="settingsMenu" type="Control" parent="." unique_id=1922965755]
 visible = false
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="settingsMenuVBox" type="VBoxContainer" parent="settingsMenu" unique_id=1996779113]
+layout_mode = 1
+anchors_preset = 13
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+anchor_bottom = 1.0
+offset_left = -262.0
+offset_right = 262.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 30
 alignment = 1
 
-[node name="resume" type="Button" parent="settingsMenu" groups=["ui_btn"]]
+[node name="resume" type="Button" parent="settingsMenu/settingsMenuVBox" unique_id=1407332409 groups=["ui_btn"]]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
@@ -135,7 +145,7 @@ action_mode = 0
 text = "RESUME"
 icon = ExtResource("3_4fiuh")
 
-[node name="sound" type="Button" parent="settingsMenu" groups=["ui_btn"]]
+[node name="sound" type="Button" parent="settingsMenu/settingsMenuVBox" unique_id=804714395 groups=["ui_btn"]]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
@@ -150,7 +160,7 @@ action_mode = 0
 text = "SOUND"
 icon = ExtResource("6_0w6e5")
 
-[node name="lang" type="Button" parent="settingsMenu" groups=["ui_btn"]]
+[node name="lang" type="Button" parent="settingsMenu/settingsMenuVBox" unique_id=1720832090 groups=["ui_btn"]]
 custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
 theme = ExtResource("5_6rr40")
@@ -158,7 +168,7 @@ action_mode = 0
 text = "LANGUAGE"
 icon = ExtResource("7_h81ot")
 
-[node name="back" type="Button" parent="settingsMenu" groups=["ui_btn"]]
+[node name="back" type="Button" parent="settingsMenu/settingsMenuVBox" unique_id=1432509716 groups=["ui_btn"]]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
@@ -168,7 +178,7 @@ action_mode = 0
 text = "BACK"
 icon = ExtResource("7_o2jkc")
 
-[node name="mainMenuReturn" type="Button" parent="settingsMenu" groups=["ui_btn"]]
+[node name="mainMenuReturn" type="Button" parent="settingsMenu/settingsMenuVBox" unique_id=274172067 groups=["ui_btn"]]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
@@ -178,11 +188,16 @@ action_mode = 0
 text = "MAIN_MENU"
 icon = ExtResource("7_o2jkc")
 
-[node name="btnSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("9_4fiuh")
-
-[node name="langOptions" type="ScrollContainer" parent="."]
+[node name="langOptions" type="Control" parent="." unique_id=523837196]
 visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="langOptionsVBox" type="ScrollContainer" parent="langOptions" unique_id=1350409418]
 custom_minimum_size = Vector2(600, 720)
 layout_mode = 1
 anchors_preset = 13
@@ -192,12 +207,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="langOptions" type="VBoxContainer" parent="langOptions"]
+[node name="langOptions" type="VBoxContainer" parent="langOptions/langOptionsVBox" unique_id=608380278]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="bn" type="Button" parent="langOptions/langOptions" groups=["lang_btn", "ui_btn"]]
+[node name="bn" type="Button" parent="langOptions/langOptionsVBox/langOptions" unique_id=1662681677 groups=["lang_btn", "ui_btn"]]
 custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
 theme = ExtResource("5_6rr40")
@@ -205,7 +220,7 @@ text = "বাংলা"
 expand_icon = true
 script = ExtResource("9_h81ot")
 
-[node name="de" type="Button" parent="langOptions/langOptions" groups=["lang_btn", "ui_btn"]]
+[node name="de" type="Button" parent="langOptions/langOptionsVBox/langOptions" unique_id=538529461 groups=["lang_btn", "ui_btn"]]
 custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
 theme = ExtResource("5_6rr40")
@@ -213,7 +228,7 @@ text = "DEUSTCH"
 expand_icon = true
 script = ExtResource("9_h81ot")
 
-[node name="en" type="Button" parent="langOptions/langOptions" groups=["lang_btn", "ui_btn"]]
+[node name="en" type="Button" parent="langOptions/langOptionsVBox/langOptions" unique_id=450553934 groups=["lang_btn", "ui_btn"]]
 custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
 theme = ExtResource("5_6rr40")
@@ -221,7 +236,7 @@ text = "ENGLISH"
 expand_icon = true
 script = ExtResource("9_h81ot")
 
-[node name="es" type="Button" parent="langOptions/langOptions" groups=["lang_btn", "ui_btn"]]
+[node name="es" type="Button" parent="langOptions/langOptionsVBox/langOptions" unique_id=786844323 groups=["lang_btn", "ui_btn"]]
 custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
 theme = ExtResource("5_6rr40")
@@ -230,7 +245,7 @@ text = "ESPAÑOL
 expand_icon = true
 script = ExtResource("9_h81ot")
 
-[node name="fr" type="Button" parent="langOptions/langOptions" groups=["lang_btn", "ui_btn"]]
+[node name="fr" type="Button" parent="langOptions/langOptionsVBox/langOptions" unique_id=1791308561 groups=["lang_btn", "ui_btn"]]
 custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
 theme = ExtResource("5_6rr40")
@@ -238,7 +253,7 @@ text = "FRANÇAIS"
 expand_icon = true
 script = ExtResource("9_h81ot")
 
-[node name="it" type="Button" parent="langOptions/langOptions" groups=["lang_btn", "ui_btn"]]
+[node name="it" type="Button" parent="langOptions/langOptionsVBox/langOptions" unique_id=446797261 groups=["lang_btn", "ui_btn"]]
 custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
 theme = ExtResource("5_6rr40")
@@ -246,7 +261,7 @@ text = "ITALIANO"
 expand_icon = true
 script = ExtResource("9_h81ot")
 
-[node name="ja" type="Button" parent="langOptions/langOptions" groups=["lang_btn", "ui_btn"]]
+[node name="ja" type="Button" parent="langOptions/langOptionsVBox/langOptions" unique_id=1704120625 groups=["lang_btn", "ui_btn"]]
 custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
 theme = ExtResource("5_6rr40")
@@ -254,7 +269,7 @@ text = "日本語"
 expand_icon = true
 script = ExtResource("9_h81ot")
 
-[node name="ko" type="Button" parent="langOptions/langOptions" groups=["lang_btn", "ui_btn"]]
+[node name="ko" type="Button" parent="langOptions/langOptionsVBox/langOptions" unique_id=98175247 groups=["lang_btn", "ui_btn"]]
 custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
 theme = ExtResource("5_6rr40")
@@ -262,7 +277,7 @@ text = "한국어"
 expand_icon = true
 script = ExtResource("9_h81ot")
 
-[node name="pt" type="Button" parent="langOptions/langOptions" groups=["lang_btn", "ui_btn"]]
+[node name="pt" type="Button" parent="langOptions/langOptionsVBox/langOptions" unique_id=2044326116 groups=["lang_btn", "ui_btn"]]
 custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
 theme = ExtResource("5_6rr40")
@@ -270,7 +285,7 @@ text = "PORTUGUÊS"
 expand_icon = true
 script = ExtResource("9_h81ot")
 
-[node name="ru" type="Button" parent="langOptions/langOptions" groups=["lang_btn", "ui_btn"]]
+[node name="ru" type="Button" parent="langOptions/langOptionsVBox/langOptions" unique_id=309406999 groups=["lang_btn", "ui_btn"]]
 custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
 theme = ExtResource("5_6rr40")
@@ -278,7 +293,7 @@ text = "русский"
 expand_icon = true
 script = ExtResource("9_h81ot")
 
-[node name="zh" type="Button" parent="langOptions/langOptions" groups=["lang_btn", "ui_btn"]]
+[node name="zh" type="Button" parent="langOptions/langOptionsVBox/langOptions" unique_id=1043013402 groups=["lang_btn", "ui_btn"]]
 custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
 theme = ExtResource("5_6rr40")
@@ -286,11 +301,14 @@ text = "中文"
 expand_icon = true
 script = ExtResource("9_h81ot")
 
+[node name="btnSound" type="AudioStreamPlayer" parent="." unique_id=1522235840]
+stream = ExtResource("9_4fiuh")
+
+[connection signal="pressed" from="mainMenu/mainMenuVbox/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="mainMenu/mainMenuVbox/settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="inGameUi/inGameSettings" to="." method="_on_in_game_settings_pressed"]
-[connection signal="pressed" from="mainMenu/play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="mainMenu/settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="settingsMenu/resume" to="." method="_on_resume_pressed"]
-[connection signal="toggled" from="settingsMenu/sound" to="." method="_on_sounds_toggled"]
-[connection signal="pressed" from="settingsMenu/lang" to="." method="_on_languageMenuBtn_pressed"]
-[connection signal="pressed" from="settingsMenu/back" to="." method="_on_back_pressed"]
-[connection signal="pressed" from="settingsMenu/mainMenuReturn" to="." method="_on_mainMenuReturn_pressed"]
+[connection signal="pressed" from="settingsMenu/settingsMenuVBox/resume" to="." method="_on_resume_pressed"]
+[connection signal="toggled" from="settingsMenu/settingsMenuVBox/sound" to="." method="_on_sounds_toggled"]
+[connection signal="pressed" from="settingsMenu/settingsMenuVBox/lang" to="." method="_on_languageMenuBtn_pressed"]
+[connection signal="pressed" from="settingsMenu/settingsMenuVBox/back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="settingsMenu/settingsMenuVBox/mainMenuReturn" to="." method="_on_mainMenuReturn_pressed"]
